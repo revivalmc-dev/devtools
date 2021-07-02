@@ -41,3 +41,12 @@ folder is in reality bind-mounted to `$PWD/.m2` on your host system (assuming yo
 
 That way maven will only download dependencies once, even if the build is done inside a docker container each
 time.
+
+## Database connection (postgresql)
+
+A postgresql instance is deployed in the cluster when `make` is issued. The DB
+data is stored in `postgres_data`, which is bind-mounted in the container.
+
+Default user: `postgres`
+Default password: `dev`
+Hostname (from inside the cluster ONLY) : `postgres`
