@@ -1,7 +1,10 @@
 version: "3.9"
 
 services:
+
   server:
+    depends_on:
+      - postgres
     build: ./server
     environment:
       - "JVM_XMS=2G"
@@ -10,3 +13,10 @@ services:
       - "./server-data:/server"
     ports:
       - "25565:25565"
+
+  postgres:
+    image: postgres:13.3-alpine
+    environment:
+      - "POSTGRES_PASSWORD=dev"
+    volumes:
+      - "./postgres_data:/var/lib/postgresql/data"

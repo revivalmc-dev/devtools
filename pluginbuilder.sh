@@ -16,4 +16,4 @@ fi
 plugindir=$1
 shift
 
-docker run -v$PWD/.m2:/root/.m2 -v$PWD/$plugindir:/usr/src/plugin -it revivalmc-dev/pluginbuilder $@
+docker run -v$PWD/.m2:/root/.m2 -v$plugindir:/usr/src/plugin -it revivalmc-dev/pluginbuilder $@

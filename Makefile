@@ -2,12 +2,16 @@ PROJECT_NAME="revivalmc-dev"
 
 COMPOSE=docker-compose -f ./src/docker-compose.yml -p $(PROJECT_NAME)
 
-all: server-data
+all: server-data postgres-data
 	@$(COMPOSE) up -d --build
 
 server-data:
 	@mkdir -p ./src/server-data
 	@ln -sf ./src/server-data .
+
+postgres-data:
+	@mkdir -p ./src/postgres-data
+	@ln -sf ./src/postgres-data .
 
 status:
 	@$(COMPOSE) ps
